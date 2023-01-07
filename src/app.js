@@ -1,3 +1,14 @@
+//local default display city and date
+let displayCity = document.querySelector("#display-city");
+let displayDate = document.querySelector("#display-date");
+let localTime = moment.tz.guess();
+let currentTimeZone = localTime;
+let cityName = localTime.replace("_", " ").split("/")[1];
+let cityDate = moment().tz(localTime).format("LLLL");
+
+displayCity.innerHTML = cityName;
+displayDate.innerHTML = cityDate;
+
 //default clock
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -9,7 +20,7 @@ setInterval(drawClock, 1000);
 function drawClock() {
   drawFace(ctx, radius);
   drawNumbers(ctx, radius);
-  drawTime(ctx, radius);
+  drawTime(ctx, radius, currentTimeZone);
 }
 
 function drawFace(ctx, radius) {
@@ -44,11 +55,10 @@ function drawNumbers(ctx, radius) {
   }
 }
 
-function drawTime(ctx, radius) {
-  var now = new Date();
-  var hour = now.getHours();
-  var minute = now.getMinutes();
-  var second = now.getSeconds();
+function drawTime(ctx, radius, currentTimeZone) {
+  var hour = moment().tz(currentTimeZone).hour();
+  var minute = moment().tz(currentTimeZone).minute();
+  var second = moment().tz(currentTimeZone).second();
   //hour
   hour = hour % 12;
   hour =
@@ -76,22 +86,23 @@ function drawHand(ctx, pos, length, width, color) {
   ctx.rotate(-pos);
 }
 
-//local default display city and date
-let displayCity = document.querySelector("#display-city");
-let displayDate = document.querySelector("#display-date");
-let localTime = moment.tz.guess();
-
-let cityName = localTime.replace("_", " ").split("/")[1];
-let cityDate = moment().tz(localTime).format("dddd, MMMM Do YYYY");
-
-displayCity.innerHTML = cityName;
-displayDate.innerHTML = cityDate;
-
 //changing country in select
-
 function changeCountry(event) {
   if (event.target.value === "toronto") {
+    displayCity.innerHTML = event.target.value;
+    currentTimeZone = "America/Toronto";
+  } else if (event.target.value === "paris") {
+    displayCity.innerHTML = event.target.value;
+    currentTimeZone = "Europe/Paris";
+  } else if (event.target.value === "brisbane") {
+    displayCity.innerHTML = event.target.value;
+    currentTimeZone = "Australia/Brisbane";
+  } else if (event.target.value === "local") {
+    currentTimeZone = localTime;
+    cityName = localTime.replace("_", " ").split("/")[1];
+    displayCity.innerHTML = cityName;
   }
+  displayDate.innerHTML = moment().tz(currentTimeZone).format("LLLL");
 }
 
 let selectCountry = document.querySelector("#country");

@@ -13,10 +13,12 @@ body {
 }
 
 .canvas {
-  width: 300;
-  height: 300;
   background-color: #fff;
 }
 h1 {
   font-family: "Josefin Sans", sans-serif;
+}
+
+#display-city {
+  text-transform: capitalize;
 }
