@@ -18,21 +18,23 @@
   </head>
   <body>
     <div class="container">
-      <h1>clock</h1>
-      <select name="country" id="country">
-        <option value="blank" id="blank">Select a city</option>
-        <option value="toronto" id="toronto">Toronto, Canada</option>
-        <option value="paris" id="paris">Paris, France</option>
-        <option value="brisbane" id="brisbane">Brisbane, Australia</option>
-        <option value="local" id="local">Local Time</option>
-      </select>
-    </br>
+      <h1 id="display-city">clock</h1>
+      <div class="dropdown">
+        <select name="country" id="country">
+          <option value="blank" id="blank">Select a city</option>
+          <option value="toronto" id="toronto">Toronto, Canada</option>
+          <option value="paris" id="paris">Paris, France</option>
+          <option value="brisbane" id="brisbane">Brisbane, Australia</option>
+          <option value="local" id="local">Local Time</option>
+        </select>
+      </div>
+      <br />
       <canvas id="canvas" width="200%" ; height="200%"> </canvas>
 
       <div>
-        <span id="display-city">chosen city here</span>
         <span id="display-date">display date</span>
       </div>
+      <br />
 
       <footer>
         Coded by Kennedy, opensourced on

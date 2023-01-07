@@ -8,17 +8,39 @@ body {
   margin: 100px auto;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 1px 1px 1px #d6d2d0;
+  box-shadow: 1px 1px 1px 1px #d6d2d0;
   text-align: center;
-}
-
-.canvas {
-  background-color: #fff;
-}
-h1 {
   font-family: "Josefin Sans", sans-serif;
 }
 
 #display-city {
   text-transform: capitalize;
+  font-size: 35px;
+}
+
+#country {
+  max-width: 90%;
+  padding: 3px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  border: 0.25px solid #000;
+  cursor: pointer;
+  text-align: center;
+}
+
+option:first-child {
+  display: none;
+}
+
+.canvas {
+  background-color: #fff;
+}
+
+#display-date {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 2px;
+}
+footer {
 }
