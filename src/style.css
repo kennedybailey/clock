@@ -1,0 +1,17 @@
+body {
+  background-color: #e9eee9;
+}
+
+.container {
+  display: block;
+  max-width: 20%;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px #d6d2d0;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Bellefair", serif;
+}
