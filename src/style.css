@@ -5,6 +5,7 @@ body {
 .container {
   display: block;
   max-width: 20%;
+  min-width: 450px;
   margin: 100px auto;
   padding: 20px;
   background-color: #fff;
@@ -42,4 +43,3 @@ option:first-child {
   font-weight: bold;
   margin: 2px;
 }
-
